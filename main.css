@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(110, 110, 110);
+  background-color: rgb(30, 30, 30);
 }
 
 .container {
@@ -19,11 +19,11 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+  grid-template: repeat(3, 1fr) / repeat(4, 1fr);
   gap: 20px;
   background-color: blue;
   border-radius: 15px;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 20px #fff;
   transition: 2s;
 }
 
@@ -34,6 +34,7 @@ img {
   border-radius: 10px;
   background-color: white;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 h1 {
@@ -41,4 +42,29 @@ h1 {
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
+  padding: 0 20px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.rotate {
+  transform: rotateY(180deg);
+  /* transform: scale(1.1); */
+}
+
+.rerotate {
+  transform: rotateY(0);
+}
+
+@media (max-width: 550px) {
+  .container {
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+  }
 }
