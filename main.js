@@ -36,7 +36,7 @@ const notFoundImgs = (img) =>
     beforeImg = null;
   }, 500);
 
-function checkImgs(img) {
+async function checkImgs(img) {
   img.className = "rotate";
   imgsData.forEach((item) => {
     if (item.name === img.alt) setTimeout(() => (img.src = item.img), 125);
@@ -44,7 +44,7 @@ function checkImgs(img) {
 
   if (beforeImg) {
     if (beforeImg.alt === img.alt && beforeImg !== img) foundImgs(img);
-    else notFoundImgs(img);
+    else await notFoundImgs(img);
   } else beforeImg = img;
 }
 
