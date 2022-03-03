@@ -34,7 +34,7 @@ img {
   border-radius: 10px;
   background-color: white;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 h1 {
@@ -46,8 +46,7 @@ h1 {
 }
 
 .hidden {
-  /* visibility: hidden; */
-  display: none;
+  visibility: hidden;
 }
 
 .rotate {
@@ -55,7 +54,7 @@ h1 {
 }
 
 .rerotate {
-  transform: rotateY(-180deg);
+  transform: rotateY(0);
 }
 
 @media (max-width: 550px) {
