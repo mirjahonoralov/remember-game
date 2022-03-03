@@ -6,10 +6,11 @@ alert(
   "O'yin shartlari: Siz 2ta ketma-ket bir xil suratni topishingiz kerak, to'g'ri topsangiz suratlar g'oyib bo'ladi. Suratlar qolmasa G'OLIBSIZ!"
 );
 imgsData.sort(() => 0.5 - Math.random());
-let beforeImg;
-let allImages = [];
+let beforeImg,
+  allImages = [],
+  box = [];
 
-const getAllImages = () => {
+const getAllImages = async () => {
   imgsData.forEach((item) => {
     const image = new Image();
     image.src = item.img;
@@ -27,6 +28,7 @@ const getImgs = () =>
   });
 
 const foundImgs = (img) => {
+  box = [];
   counter++;
   RESULT.innerText = counter;
   if (counter === 6)
@@ -38,14 +40,17 @@ const foundImgs = (img) => {
 
 const notFoundImgs = (img) =>
   setTimeout(() => {
+    box = [];
     beforeImg.src = "./images/click.png";
     img.src = "./images/click.png";
     img.className = "rerotate";
     beforeImg.className = "rerotate";
     beforeImg = null;
-  }, 500);
+  }, 1000);
 
 function checkImgs(img) {
+  box.push(img);
+  if (box.length > 2) return;
   img.className = "rotate";
   imgsData.forEach((item) => {
     if (item.name === img.alt) setTimeout(() => (img.src = item.img), 125);
@@ -57,5 +62,5 @@ function checkImgs(img) {
   } else beforeImg = img;
 }
 
-getAllImages();
+await getAllImages();
 getImgs();
